@@ -2,43 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
-{
+public class Bullet : MonoBehaviour {
     [HideInInspector] public bool isLeft;
     public float bulletSpeed = 2.0f;
-    public PlayerController.state bulletState;
+    private Colored col;
 
-    private SpriteRenderer spriteRenderer;
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        switch (bulletState)
-        {
-            case PlayerController.state.water:
-                spriteRenderer.color = Color.blue;
-                break;
-            case PlayerController.state.wind:
-                spriteRenderer.color = Color.green;
-                break;
-            case PlayerController.state.fire:
-                spriteRenderer.color = Color.red;
-                break;
-            default:
-                Debug.Log("No State");
-                break;
+    void Start() {
+        col = GetComponent<Colored>();
+        StartCoroutine(RangeLimit());
+    }
+    void Update() {
+        if (isLeft) {
+            transform.Translate(Vector2.left * Time.deltaTime * bulletSpeed);
+        } else {
+            transform.Translate(Vector2.right * Time.deltaTime * bulletSpeed);
         }
     }
 
-    void Update()
-    {
-        if (isLeft)
-        {
-            transform.Translate(Vector2.left * Time.deltaTime * bulletSpeed);
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.transform.GetComponent<Colored>()) {
+            Colored.NewState(collision.transform.GetComponent<Colored>(), col.State);
         }
-        else
-        {
-            transform.Translate(Vector2.right * Time.deltaTime * bulletSpeed);
-        }
+        Destroy(gameObject);
+    }
+
+    IEnumerator RangeLimit() {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 }

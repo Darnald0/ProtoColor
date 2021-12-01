@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 3296909328936984831}
   - component: {fileID: 1367784054986346019}
   - component: {fileID: 5530964735899671648}
+  - component: {fileID: 4896038735306954986}
+  - component: {fileID: -161119814985825439}
+  - component: {fileID: 2514563652623148281}
+  - component: {fileID: -2232773403031787319}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -97,4 +101,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLeft: 0
   bulletSpeed: 20
-  bulletState: 0
+--- !u!58 &4896038735306954986
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882767512256439433}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &-161119814985825439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882767512256439433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33d62a3f3a4e1d41ba7b927be7ad267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 0
+  move: {fileID: 0}
+--- !u!114 &2514563652623148281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882767512256439433}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7302f81048e24d34d8d9bbe225de1d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 1
+  speed: 3
+  firstPoint: {fileID: 0}
+  secondPoint: {fileID: 0}
+  intoFirstPoint: 0
+--- !u!50 &-2232773403031787319
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882767512256439433}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
